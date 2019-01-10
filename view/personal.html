@@ -50,6 +50,23 @@
                     }
                 })
 
+
+
+
+                $.ajax({
+                    url: 'http://10.30.29.68/session.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    xhrFields:{withCredentials:true},
+                    success: function (res) {
+                        if (res.message === 'errors') {
+                            location.href = 'unlogin.html';
+                        }
+                    }
+                })
+
+
+
                 $('#btnLogout').click(function () {
                     $.ajax({
                         url: 'http://10.30.29.67:3000/logout',
